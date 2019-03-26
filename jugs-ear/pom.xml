@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>jugs-ear</artifactId>
+	<packaging>ear</packaging>
+	<version>1.0</version>
+
+	<parent>
+		<groupId>de.itemis.test</groupId>
+		<artifactId>jugs-activemq-ear</artifactId>
+		<version>0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<!-- web and ejb modules -->
+		<dependency>
+			<groupId>de.itemis.test</groupId>
+			<artifactId>jugs-ejb</artifactId>
+			<version>0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>de.itemis.test</groupId>
+			<artifactId>jugs-web</artifactId>
+			<version>0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.3.2</version>
+				<!-- configuring the ear plugin -->
+				<configuration>
+					<modules>
+						<webModule>
+							<groupId>de.itemis.test</groupId>
+							<artifactId>jugs-web</artifactId>
+							<contextRoot>/</contextRoot>
+						</webModule>
+						<ejbModule>
+							<groupId>de.itemis.test</groupId>
+							<artifactId>jugs-ejb</artifactId>
+						</ejbModule>
+					</modules>
+					<generateApplicationXml>true</generateApplicationXml>
+					<includeLibInApplicationXml>true</includeLibInApplicationXml>
+					<earSourceDirectory>${basedir}/src/main/resources</earSourceDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
