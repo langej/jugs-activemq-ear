@@ -2,7 +2,6 @@ package de.itemis;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.Queue;
 import javax.jms.TextMessage;
@@ -16,7 +15,6 @@ import javax.ws.rs.core.Response;
 public class MyResource {
 	
 	@Inject
-	@JMSConnectionFactory("java:jboss/activemq/QueueConnectionFactory")
 	JMSContext jmsctx;
 	
 	@Resource(lookup = "java:/jugs/jugsqueue")
