@@ -19,7 +19,7 @@ public class MyResource {
 	@JMSConnectionFactory("java:jboss/activemq/QueueConnectionFactory")
 	JMSContext jmsctx;
 	
-	@Resource(lookup = "java:/jugs/jugsqueue")
+	@Resource(name = "java:/jugs/jugsqueue")
 	Queue queue;
 
 	@GET
