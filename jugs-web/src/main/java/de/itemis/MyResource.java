@@ -17,7 +17,7 @@ public class MyResource {
 	@Inject
 	JMSContext jmsctx;
 	
-	@Resource(lookup = "java:/jugs/jugsqueue")
+	@Resource(name = "java:/jugs/jugsqueue")
 	Queue queue;
 
 	@GET
